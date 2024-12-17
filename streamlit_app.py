@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import tensorflow as tf
+from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import streamlit as st
@@ -62,7 +63,7 @@ st.markdown("### A Tomato Plant Disease Classification App")
 @st.cache_resource
 def load_trained_model():
     model_path = "/content/PlantTomatoDisease.tflite"  # Update this with your model's saved path
-    return load_model(model_path)
+    return keras.layers.TFSMLayer(PlantTomatoDisease.tflite, call_endpoint='serving_default')
 
 model = load_trained_model()
 
