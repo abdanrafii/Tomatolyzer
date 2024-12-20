@@ -77,7 +77,7 @@ st.title("🍅 Tomatolyzer")
 st.markdown("### A Tomato Plant Disease Classification App")
 
 # Load model
-@st.cache_resource
+# @st.cache_resource
 def load_trained_model():
     return load_model(MODEL_PATH)
 
