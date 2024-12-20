@@ -1,3 +1,5 @@
+import os
+
 # Google Drive file IDs
 MODEL_FILE_ID = "1NicVqNqoQewx0FykWd5T92a0ufkys2lC"  # Replace with the FILE_ID of PlantTomatoDisease.h5
 CLASS_NAMES_FILE_ID = "1AXBXtJhHtvU_oUDOISrxiHbjVEZ2BIPA"  # Replace with the FILE_ID of class_names.json
