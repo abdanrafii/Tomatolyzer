@@ -1,1 +1,6 @@
+numpy
+tensorflow
 streamlit
+Pillow
+gdown
+openai
