@@ -201,7 +201,7 @@ elif menu == "Upload Gambar":
 
   # Option to choose between uploaded or sample image
   image_choice = st.selectbox("Pilih opsi gambar:", ["Unggah gambar sendiri", "Pilih gambar dari sampel"])
-
+print(model.input_shape)
   # File uploader
   if image_choice == "Unggah gambar sendiri":
       uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
@@ -241,7 +241,6 @@ elif menu == "Upload Gambar":
       img_array = image.img_to_array(img)
       img_array = np.expand_dims(img_array, axis=0)
 
-      print(model.input_shape)
       
       # Predict the class
       with st.spinner("Classifying..."):
