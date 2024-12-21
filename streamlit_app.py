@@ -8,6 +8,7 @@ import json
 from PIL import Image
 import io
 import base64
+import gdown
 from openai import OpenAI
 
 client = OpenAI(api_key=st.secrets["API_KEY"])
