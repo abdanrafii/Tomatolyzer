@@ -236,7 +236,7 @@ elif menu == "Upload Gambar":
       img_base64 = base64.b64encode(buffered.getvalue()).decode()
 
       # Preprocess the image
-      img = img.resize((254, 254))
+      img = img.resize((300, 300))
       img = img.convert("RGB")
       img_array = image.img_to_array(img)
       img_array = np.expand_dims(img_array, axis=0)
