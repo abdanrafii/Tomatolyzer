@@ -4,3 +4,4 @@ streamlit
 Pillow
 gdown
 openai
+protobuf==3.20.*
