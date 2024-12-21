@@ -96,31 +96,31 @@ menu = st.sidebar.selectbox(
     index=0,
 )
 
-def get_readable_size(size_in_bytes):
-    """Convert bytes to a human-readable format."""
-    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
-        if size_in_bytes < 1024:
-            return f"{size_in_bytes:.2f} {unit}"
-        size_in_bytes /= 1024
-    return f"{size_in_bytes:.2f} PB"
+# def get_readable_size(size_in_bytes):
+#     """Convert bytes to a human-readable format."""
+#     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+#         if size_in_bytes < 1024:
+#             return f"{size_in_bytes:.2f} {unit}"
+#         size_in_bytes /= 1024
+#     return f"{size_in_bytes:.2f} PB"
 
-def list_files_with_sizes(directory):
-    """List files in the directory with their sizes."""
-    try:
-        # Get all files and directories
-        with os.scandir(directory) as entries:
-            st.info(f"{'File Name':<40} {'Size':>10}")
-            st.info("-" * 50)
-            for entry in entries:
-                if entry.is_file():  # Check if it's a file
-                    size = os.path.getsize(entry.path)
-                    st.info(f"{entry.name:<40} {get_readable_size(size):>10}")
-    except Exception as e:
-        st.info(f"Error: {e}")
+# def list_files_with_sizes(directory):
+#     """List files in the directory with their sizes."""
+#     try:
+#         # Get all files and directories
+#         with os.scandir(directory) as entries:
+#             st.info(f"{'File Name':<40} {'Size':>10}")
+#             st.info("-" * 50)
+#             for entry in entries:
+#                 if entry.is_file():  # Check if it's a file
+#                     size = os.path.getsize(entry.path)
+#                     st.info(f"{entry.name:<40} {get_readable_size(size):>10}")
+#     except Exception as e:
+#         st.info(f"Error: {e}")
 
-# Replace 'your_directory_path' with the path of the directory you want to scan
-directory_path = '/mount/src/tomatolyzer/'
-list_files_with_sizes(directory_path)
+# # Replace 'your_directory_path' with the path of the directory you want to scan
+# directory_path = '/mount/src/tomatolyzer/'
+# list_files_with_sizes(directory_path)
 
 if menu == "Home":
   # st.header("Home")
