@@ -241,6 +241,12 @@ elif menu == "Upload Gambar":
       img_array = image.img_to_array(img)
       img_array = np.expand_dims(img_array, axis=0)
 
+      # Adjust batch dimension based on model's expected input shape
+      if model.input_shape == (None, 254, 254, 3):  # Model expects batch dimension
+          img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+      elif model.input_shape == (254, 254, 3):  # Model does NOT expect batch dimension
+          img_array = np.squeeze(img_array, axis=0)  # Remove batch dimension if added earlier
+
       # Predict the class
       with st.spinner("Classifying..."):
           predictions = model.predict(img_array, verbose=0)
