@@ -1,7 +1,7 @@
 numpy==1.21.6
-tensorflow==2.9.0
+tensorflow
 streamlit
 Pillow
 gdown
 openai
-protobuf==3.20.*
+protobuf
