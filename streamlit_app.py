@@ -86,6 +86,7 @@ def load_trained_model():
         return None
         
 model = load_trained_model()
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 with open(CLASS_NAMES_PATH, 'r') as f:
     class_names = json.load(f)
