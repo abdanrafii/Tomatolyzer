@@ -87,6 +87,17 @@ def load_trained_model():
         
 model = load_trained_model()
 
+def get_model_summary(model):
+    stream = io.StringIO()  # Create a stream to capture the summary
+    model.summary(print_fn=lambda x: stream.write(x + "\n"))  # Redirect summary to the stream
+    summary_str = stream.getvalue()  # Get the content of the stream
+    stream.close()  # Close the stream
+    return summary_str
+
+# Display the model summary in Streamlit
+st.title("Model Architecture")
+st.text(get_model_summary(model))
+
 with open(CLASS_NAMES_PATH, 'r') as f:
     class_names = json.load(f)
     
