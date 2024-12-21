@@ -1,7 +1,6 @@
 numpy
-tensorflow==2.13.0
+tensorflow
 streamlit
 Pillow
 gdown
-openai==1.57.4
-typing-extensions
+openai
