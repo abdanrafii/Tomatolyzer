@@ -74,10 +74,18 @@ if not os.path.exists(CLASS_NAMES_PATH):
     gdown.download(f"https://drive.google.com/uc?id=1AXBXtJhHtvU_oUDOISrxiHbjVEZ2BIPA", CLASS_NAMES_PATH, quiet=False)
     
 # Load model
+# @st.cache_resource
+# def load_trained_model():
+#     return load_model(MODEL_PATH)
+
 @st.cache_resource
 def load_trained_model():
-    return load_model(MODEL_PATH)
-
+    try:
+        return tf.keras.models.load_model(MODEL_PATH)
+    except ValueError as e:
+        st.error(f"Failed to load the model: {e}")
+        return None
+        
 model = load_trained_model()
 
 # Load class names
