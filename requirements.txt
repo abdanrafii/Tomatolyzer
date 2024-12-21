@@ -1,5 +1,5 @@
 numpy==1.21.6
-tensorflow
+tensorflow==2.12.0
 streamlit
 Pillow
 gdown
