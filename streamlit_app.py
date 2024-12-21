@@ -55,11 +55,27 @@ st.markdown(
 st.title("🍅 Tomatolyzer")
 st.markdown("### A Tomato Plant Disease Classification App")
 
+# Google Drive file IDs
+MODEL_FILE_ID = "1NicVqNqoQewx0FykWd5T92a0ufkys2lC"  # Replace with the FILE_ID of PlantTomatoDisease.h5
+CLASS_NAMES_FILE_ID = "1AXBXtJhHtvU_oUDOISrxiHbjVEZ2BIPA"  # Replace with the FILE_ID of class_names.json
+
+
+# Paths to save the files locally
+MODEL_PATH = "PlantTomatoDisease.h5"
+CLASS_NAMES_PATH = "class_names.json"
+
+# Download model file
+if not os.path.exists(MODEL_PATH):
+    gdown.download(f"https://drive.google.com/uc?id=1NicVqNqoQewx0FykWd5T92a0ufkys2lC", MODEL_PATH, quiet=False)
+
+# Download class names file
+if not os.path.exists(CLASS_NAMES_PATH):
+    gdown.download(f"https://drive.google.com/uc?id=1AXBXtJhHtvU_oUDOISrxiHbjVEZ2BIPA", CLASS_NAMES_PATH, quiet=False)
+    
 # Load model
 @st.cache_resource
 def load_trained_model():
-    model_path = "/content/PlantTomatoDisease.h5"  # Update this with your model's saved path
-    return load_model(model_path)
+    return load_model(MODEL_PATH)
 
 model = load_trained_model()
 
