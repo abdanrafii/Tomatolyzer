@@ -3,4 +3,4 @@ tensorflow==2.13.0
 streamlit
 Pillow
 gdown
-openai
+openai==1.57.4
