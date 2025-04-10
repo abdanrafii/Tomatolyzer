@@ -67,38 +67,16 @@ MODEL_PATH = "PlantTomatoDisease.h5"
 CLASS_NAMES_PATH = "class_names.json"
 
 # Download model file
-def download_file_with_progress(url, output_path):
-    response = requests.get(url, stream=True)
-    total_size = int(response.headers.get('content-length', 0))
-    
-    # Streamlit progress bar
-    progress_bar = st.progress(0)
-    status_text = st.empty()
-    
-    # Download with progress
-    bytes_downloaded = 0
-    with open(output_path, 'wb') as file:
-        for data in response.iter_content(chunk_size=1024):
-            bytes_downloaded += len(data)
-            file.write(data)
-            
-            # Update progress bar (0.0 to 1.0)
-            progress = min(bytes_downloaded / total_size, 1.0)
-            progress_bar.progress(progress)
-            status_text.text(f"Downloading: {bytes_downloaded/1024/1024:.2f}/{total_size/1024/1024:.2f} MB")
-    
-    # Clear status after completion
-    progress_bar.empty()
-    return os.path.getsize(output_path) / (1024 * 1024)
-
 if not os.path.exists(MODEL_PATH):
-        if st.button("Download Model"):
-            with st.spinner("Starting download..."):
-                file_size_mb = download_file_with_progress(URL, MODEL_PATH)
-                st.success(f"Download completed! File size: {file_size_mb:.2f} MB")
+    gdown.download(f"https://drive.google.com/uc?id=1NicVqNqoQewx0FykWd5T92a0ufkys2lC", MODEL_PATH, quiet=False)
+    
+    if os.path.exists(MODEL_PATH):
+        file_size = os.path.getsize(MODEL_PATH)
+        # Convert to MB
+        file_size_mb = file_size / (1024 * 1024)
+        st.info(f"Download completed. File size: {file_size_mb:.2f} MB")
     else:
-        file_size_mb = os.path.getsize(MODEL_PATH) / (1024 * 1024)
-        st.info(f"Model already exists. File size: {file_size_mb:.2f} MB")
+        st.info("Download failed!")
         
 # Download class names file
 if not os.path.exists(CLASS_NAMES_PATH):
