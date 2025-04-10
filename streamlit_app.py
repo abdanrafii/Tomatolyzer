@@ -69,7 +69,16 @@ CLASS_NAMES_PATH = "class_names.json"
 # Download model file
 if not os.path.exists(MODEL_PATH):
     gdown.download(f"https://drive.google.com/uc?id=1nYPrQboF8msCjU4uSl0KFsepubpT2aAf", MODEL_PATH, quiet=False)
-        
+    if os.path.exists(MODEL_PATH):
+         file_size = os.path.getsize(MODEL_PATH)
+         # Convert to MB
+         file_size_mb = file_size / (1024 * 1024)
+         st.info(f"Download completed. File size: {file_size_mb:.2f} MB")
+     else:
+         st.info("Download failed!")
+ 
+ st.info(os.path.getsize(MODEL_PATH)  / (1024 * 1024))
+
 # Download class names file
 if not os.path.exists(CLASS_NAMES_PATH):
     gdown.download(f"https://drive.google.com/uc?id=1AXBXtJhHtvU_oUDOISrxiHbjVEZ2BIPA", CLASS_NAMES_PATH, quiet=False)
