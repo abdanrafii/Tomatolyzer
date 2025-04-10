@@ -162,7 +162,7 @@ if menu == "Home":
  Menggunakan EfficientNetB3 yang terkenal karena efisiensinya dalam menangani variasi gambar dan meminimalkan kebutuhan daya komputasi, sambil tetap mempertahankan akurasi yang tinggi. Model ini telah dilatih dengan dataset spesifik tanaman tomat, mencakup 9 kelas penyakit utama.
 
  ###### Proses Deteksi Cepat:
- Gambar yang diunggah akan diproses dalam hitungan detik melalui pipeline deteksi yang mencakup preprocessing, ekstraksi fitur, dan prediksi akhir dengan akurasi hingga 99%.
+ Gambar yang diunggah akan diproses dalam hitungan detik melalui pipeline deteksi yang mencakup preprocessing, ekstraksi fitur, dan prediksi akhir dengan akurasi hingga 90%.
 
  #### Penyakit yang dapat dideteksi:
   - Tomato Bacterial Spot
