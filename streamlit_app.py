@@ -77,6 +77,8 @@ if not os.path.exists(MODEL_PATH):
         st.info(f"Download completed. File size: {file_size_mb:.2f} MB")
     else:
         st.info("Download failed!")
+
+st.info(os.path.getsize(MODEL_PATH)  / (1024 * 1024))
         
 # Download class names file
 if not os.path.exists(CLASS_NAMES_PATH):
