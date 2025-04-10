@@ -4,3 +4,5 @@ streamlit==1.41.1
 Pillow==11.0.0
 gdown==5.2.0
 openai==1.57.4
+requests
+tqdm
